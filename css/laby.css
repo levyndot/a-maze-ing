@@ -72,6 +72,9 @@ h1 {
 #exit {
     background-image: url("../img/door.png") !important;
 }
+#sword {
+    background-image: url("../img/sword.png");
+}
 .player-left {
     background-image: url("../img/player-left.png");
 }
@@ -92,10 +95,27 @@ h1 {
     background-size: cover;
 }
 
-#item-key.key-not-found {
+#item-sword {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#item-key.disabled {
     background-image: url("../img/key-grey.png");
 }
 
-#item-key.key-found {
+#item-key.enabled {
     background-image: url("../img/key.png");
+}
+
+#item-sword.disabled {
+    background-image: url("../img/sword-grey.png");
+}
+
+#item-sword.enabled {
+    background-image: url("../img/sword.png");
 }

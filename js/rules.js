@@ -46,18 +46,29 @@ function checkPosition() {
     if (maze[player.position[0]][player.position[1]] === "k") {
         player.hasKey = true;
         let itemKeyElem = $("#item-key");
-        itemKeyElem.removeClass("key-not-found");
-        itemKeyElem.addClass("key-found");
+        itemKeyElem.removeClass("disabled");
+        itemKeyElem.addClass("enabled");
         $("#key").remove();
+        maze[player.position[0]][player.position[1]] = " ";
+        player.score = player.score - 2;
+    } if (maze[player.position[0]][player.position[1]] === "s") {
+        player.hasSword = true;
+        let itemSwordElem = $("#item-sword");
+        itemSwordElem.removeClass("disabled");
+        itemSwordElem.addClass("enabled");
+        $("#sword").remove();
         maze[player.position[0]][player.position[1]] = " ";
         player.score = player.score - 2;
     } else if (maze[player.position[0]][player.position[1]] === "e" && player.hasKey) {
         gameStarted = false;
         showPopup("You win!", "Congratulations, you succeeded the Maze! Your final score is: " + player.score + "!")
     } else if (maze[player.position[0]][player.position[1]] === "dr" || maze[player.position[0]][player.position[1]] === "db") {
-        player.score = player.score - 100;
-    } else {
-        player.score = player.score - 2;
+        if(maze[player.position[0]][player.position[1]] !== "dr" || (maze[player.position[0]][player.position[1]] === "dr" && !player.hasSword)) {
+            player.score = player.score - 100;
+        } else {
+            maze[player.position[0]][player.position[1]] = " ";
+            $("#dragonRed").remove();
+        }
     }
     updateScore()
 }

@@ -1,10 +1,3 @@
-let gameStarted = false;
-let player = {
-    score: 1000,
-    position: [0, 0],
-    hasKey: false
-}
-
 /**
  * Initialize the maze with the matrix
  */
@@ -32,6 +25,17 @@ function initMaze() {
                 case "s":
                     rowElement.append('<div class="maze-cell grass"></div>');
 
+                    // Create sword element
+                    let swordHtmlElement = $('<div class="maze-element" id="sword"></div>');
+                    // Add key div into game zone
+                    gameZoneElement.append(swordHtmlElement);
+                    // Update sword position on game board
+                    $(swordHtmlElement).css("top", (rowIndex * 40) + "px");
+                    $(swordHtmlElement).css("left", (cellIndex * 40) + "px");
+                    break;
+                case "x":
+                    rowElement.append('<div class="maze-cell grass"></div>');
+
                     // Create start element
                     let playerHtmlElement = $('<div class="maze-element player-right" id="player"></div>');
                     // Add player div into game zone
@@ -42,6 +46,7 @@ function initMaze() {
 
                     // Save player start position
                     player.position = [parseInt(rowIndex), parseInt(cellIndex)];
+                    maze[parseInt(rowIndex)][parseInt(cellIndex)] = " ";
                     break;
                 case "dr":
                     rowElement.append('<div class="maze-cell grass"></div>');
@@ -55,7 +60,7 @@ function initMaze() {
                     $(drHtmlElement).css("left", (cellIndex * 40) + "px");
 
                     // Save dragon start position
-                    dragons.redPosition = [parseInt(rowIndex), parseInt(cellIndex)];
+                    dragons.setRedDragonPosition([parseInt(rowIndex), parseInt(cellIndex)]);
                     break;
                 case "db":
                     rowElement.append('<div class="maze-cell grass"></div>');
@@ -69,7 +74,7 @@ function initMaze() {
                     $(dbHtmlElement).css("left", (cellIndex * 40) + "px");
 
                     // Save dragon start position
-                    dragons.bluePosition = [parseInt(rowIndex), parseInt(cellIndex)];
+                    dragons.setBlueDragonPosition([parseInt(rowIndex), parseInt(cellIndex)]);
                     break;
                 case "e":
                     rowElement.append('<div class="maze-cell wall"></div>');
@@ -98,11 +103,13 @@ $(window).on('load', function () {
         $("#maze").empty();
         if(!gameStarted) {
             initMaze();
-            $("#btn-start-game").html("Stop it !");
             gameStarted = true;
+            dragons.startMove();
+            $("#btn-start-game").html("Stop it !");
         } else {
-            $("#btn-start-game").html("Start adventure");
             gameStarted = false;
+            dragons.stopMove();
+            $("#btn-start-game").html("Start adventure");
         }
     });
     updateScore();

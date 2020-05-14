@@ -9,6 +9,7 @@
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
 
+    <script src="js/test-maze-generator.js"></script>
     <script src="js/maze-declaration.js"></script>
     <script src="js/dragons.js"></script>
     <script src="js/maze-init.js"></script>
@@ -42,6 +43,8 @@
                         <div class="row">
                             <div class="col">
                                 <p class="lead">This is the text that explains how to play</p>
+
+                                <p class="">Z = <i class="fa fa-compass" aria-hidden="true"></i></p>
                             </div>
                         </div>
                         <div class="collapse" id="gameZone">
@@ -49,8 +52,11 @@
                                 <div class="col-md-3 offset-1">
                                     Score : <span class="badge badge-success" id="score"></span>
                                 </div>
-                                <div class="col-md-1 offset-6">
-                                    <div id="item-key" class="key-not-found"></div>
+                                <div class="col-md-1 offset-5">
+                                    <div id="item-sword" class="disabled"></div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div id="item-key" class="disabled"></div>
                                 </div>
                             </div>
                             <div class="row">

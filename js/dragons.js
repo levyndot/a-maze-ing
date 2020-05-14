@@ -2,34 +2,68 @@
  * Manage dragons movements
  */
 let dragons = {
-    redPosition : [0,0],
+    _redPosition : [0,0],
     redPreviousMove : "",
-    bluePosition : [0,0],
+    _redKilled : false,
+    _bluePosition : [0,0],
     bluePreviousMove : "",
+    _timer : false,
 
-
-    move : function() {
+    _move : function() {
         let redDragonElem = $("#dragonRed");
         let blueDragonElem = $("#dragonBlue");
         let directionToMove;
 
         // Red Dragon
-        directionToMove = this._getDirection(this.redPosition, this.redPreviousMove);
-        maze[this.redPosition[0]][this.redPosition[1]] = " ";
-        this.redPosition = this._computeNewPosition(this.redPosition, directionToMove);
-        maze[this.redPosition[0]][this.redPosition[1]] = "dr";
-        this.redPreviousMove = directionToMove;
-        redDragonElem.css("top", (this.redPosition[0] * 40) + "px");
-        redDragonElem.css("left", (this.redPosition[1] * 40) + "px");
+        if(!this._redKilled) {
+            directionToMove = dragons._getDirection(dragons._redPosition, dragons.redPreviousMove);
+            maze[dragons._redPosition[0]][dragons._redPosition[1]] = " ";
+            dragons._redPosition = dragons._computeNewPosition(dragons._redPosition, directionToMove);
+            maze[dragons._redPosition[0]][dragons._redPosition[1]] = "dr";
+            dragons.redPreviousMove = directionToMove;
+            redDragonElem.css("top", (dragons._redPosition[0] * 40) + "px");
+            redDragonElem.css("left", (dragons._redPosition[1] * 40) + "px");
+        }
 
         // Blue Dragon
-        directionToMove = this._getDirection(this.bluePosition, this.bluePreviousMove);
-        maze[this.bluePosition[0]][this.bluePosition[1]] = " ";
-        this.bluePosition = this._computeNewPosition(this.bluePosition, directionToMove);
-        maze[this.bluePosition[0]][this.bluePosition[1]] = "db";
-        this.bluePreviousMove = directionToMove;
-        blueDragonElem.css("top", (this.bluePosition[0] * 40) + "px");
-        blueDragonElem.css("left", (this.bluePosition[1] * 40) + "px");
+        directionToMove = dragons._getDirection(dragons._bluePosition, dragons.bluePreviousMove);
+        maze[dragons._bluePosition[0]][dragons._bluePosition[1]] = " ";
+        dragons._bluePosition = dragons._computeNewPosition(dragons._bluePosition, directionToMove);
+        maze[dragons._bluePosition[0]][dragons._bluePosition[1]] = "db";
+        dragons.bluePreviousMove = directionToMove;
+        blueDragonElem.css("top", (dragons._bluePosition[0] * 40) + "px");
+        blueDragonElem.css("left", (dragons._bluePosition[1] * 40) + "px");
+
+        checkPosition();
+
+        // Loop
+        if(!gameStarted) {
+            dragons.stopMove();
+        } else {
+            dragons._timer = setTimeout(dragons._move, 500);
+        }
+    },
+
+    /**
+     * Start dragons moving
+     */
+    startMove : function() {
+        this._move()
+    },
+
+    /**
+     * Stop dragons moving
+     */
+    stopMove : function() {
+        clearTimeout(this._timer);
+    },
+
+    setRedDragonPosition : function (position) {
+        this._redPosition = position;
+    },
+
+    setBlueDragonPosition : function (position) {
+        this._bluePosition = position;
     },
 
     _getDirection : function (position, previousMove) {
@@ -106,3 +140,4 @@ let dragons = {
         return newPosition;
     }
 };
+
