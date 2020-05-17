@@ -21,8 +21,8 @@ let dragons = {
             dragons._redPosition = dragons._computeNewPosition(dragons._redPosition, directionToMove);
             maze[dragons._redPosition[0]][dragons._redPosition[1]] = "dr";
             dragons.redPreviousMove = directionToMove;
-            redDragonElem.css("top", (dragons._redPosition[0] * 40) + "px");
-            redDragonElem.css("left", (dragons._redPosition[1] * 40) + "px");
+            redDragonElem.css("top", (dragons._redPosition[0] * 30) + "px");
+            redDragonElem.css("left", (dragons._redPosition[1] * 30) + "px");
         }
 
         // Blue Dragon
@@ -31,8 +31,8 @@ let dragons = {
         dragons._bluePosition = dragons._computeNewPosition(dragons._bluePosition, directionToMove);
         maze[dragons._bluePosition[0]][dragons._bluePosition[1]] = "db";
         dragons.bluePreviousMove = directionToMove;
-        blueDragonElem.css("top", (dragons._bluePosition[0] * 40) + "px");
-        blueDragonElem.css("left", (dragons._bluePosition[1] * 40) + "px");
+        blueDragonElem.css("top", (dragons._bluePosition[0] * 30) + "px");
+        blueDragonElem.css("left", (dragons._bluePosition[1] * 30) + "px");
 
         checkPosition();
 
