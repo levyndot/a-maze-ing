@@ -72,7 +72,6 @@ function displayMaze(m) {
         }
         textMaze.push(line);
     }
-    console.log(textMaze);
     return textMaze;
 }
 
@@ -85,6 +84,5 @@ function placeItems(itemArray, textMaze) {
         while(textMaze[itemPositionning[0]][itemPositionning[1]] !== " ")
         textMaze[itemPositionning[0]][itemPositionning[1]] = itemArray[i];
     }
-    console.log(textMaze);
     return textMaze;
 }

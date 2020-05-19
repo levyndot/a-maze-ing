@@ -41,18 +41,29 @@
                 <div class="card card-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col">
-                                <p class="lead">This is the text that explains how to play</p>
-
-                                <p class="">Z = <i class="fa fa-compass" aria-hidden="true"></i></p>
+                            <div class="col-md-8">
+                                Rules:<br/>
+                                Get out of this maze! Catch the key <img class="icon" src="img/key.png"> and run towards the exit door <img class="icon" src="img/door.png"> <br/>
+                                Watch out the dragons! You lose 100 points when crossing them ... <br/>
+                                However you can kill the red one <img class="icon" src="img/dragon-red.png"> with the hidden sword <img class="icon" src="img/sword.png">
+                            </div>
+                            <div class="col-md-2">
+                                Commands:<br/>
+                                Z = <i class="fa fa-arrow-up" aria-hidden="true"></i> <br/>
+                                Q = <i class="fa fa-arrow-left" aria-hidden="true"></i> <br/>
+                                S = <i class="fa fa-arrow-down" aria-hidden="true"></i> <br/>
+                                D = <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="collapse" id="gameZone">
                             <div class="row" id="player-data">
                                 <div class="col-md-3 offset-1">
-                                    Score : <span class="badge badge-success" id="score"></span>
+                                    Score: <span class="badge badge-success" id="score"></span>
                                 </div>
-                                <div class="col-md-1 offset-5">
+                                <div class="col-md-2 offset-1">
+                                    <i class="fa fa-clock-o"></i> 00:00
+                                </div>
+                                <div class="col-md-1 offset-2">
                                     <div id="item-sword" class="disabled"></div>
                                 </div>
                                 <div class="col-md-1">

@@ -116,7 +116,7 @@ let dragons = {
     },
 
     _cellIsValid : function(value) {
-        return value !== "w" && value !== "e" && value !== "dr" && value !== "db";
+        return value !== "w" && value !== "x" && value !== "e" && value !== "dr" && value !== "db";
     },
 
     _computeNewPosition : function(position, direction) {

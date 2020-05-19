@@ -66,6 +66,10 @@ h1 {
 .dragon-blue {
     background-image: url("../img/dragon-blue.png");
 }
+.icon {
+    height: 25px;
+    width: 25px;
+}
 #key {
     background-image: url("../img/key.png");
 }

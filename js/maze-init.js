@@ -2,7 +2,6 @@
  * Initialize the maze with the matrix
  */
 function initMaze() {
-    console.log("Maze initialization begins");
     const gameZoneElement = $("#maze");
     for (const rowIndex in maze) {
         let rowElement = $('<div>');
@@ -46,7 +45,6 @@ function initMaze() {
 
                     // Save player start position
                     player.position = [parseInt(rowIndex), parseInt(cellIndex)];
-                    maze[parseInt(rowIndex)][parseInt(cellIndex)] = " ";
                     break;
                 case "dr":
                     rowElement.append('<div class="maze-cell grass"></div>');
@@ -102,6 +100,7 @@ $(window).on('load', function () {
     $("#btn-start-game").on('click', function () {
         $("#maze").empty();
         if(!gameStarted) {
+            maze = placeItems(items, displayMaze(mazeAlea(11,11)));
             initMaze();
             gameStarted = true;
             dragons.startMove();
