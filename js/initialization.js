@@ -18,8 +18,8 @@ function initMaze() {
                     // Add key div into game zone
                     gameZoneElement.append(keyHtmlElement);
                     // Update key position on game board
-                    $(keyHtmlElement).css("top", (rowIndex * 40) + "px");
-                    $(keyHtmlElement).css("left", (cellIndex * 40) + "px");
+                    $(keyHtmlElement).css("top", (rowIndex * 30) + "px");
+                    $(keyHtmlElement).css("left", (cellIndex * 30) + "px");
                     break;
                 case "s":
                     rowElement.append('<div class="maze-cell grass"></div>');
@@ -29,8 +29,8 @@ function initMaze() {
                     // Add key div into game zone
                     gameZoneElement.append(swordHtmlElement);
                     // Update sword position on game board
-                    $(swordHtmlElement).css("top", (rowIndex * 40) + "px");
-                    $(swordHtmlElement).css("left", (cellIndex * 40) + "px");
+                    $(swordHtmlElement).css("top", (rowIndex * 30) + "px");
+                    $(swordHtmlElement).css("left", (cellIndex * 30) + "px");
                     break;
                 case "x":
                     rowElement.append('<div class="maze-cell grass"></div>');
@@ -40,8 +40,8 @@ function initMaze() {
                     // Add player div into game zone
                     gameZoneElement.append(playerHtmlElement);
                     // Update player position on game board
-                    $(playerHtmlElement).css("top", (rowIndex * 40) + "px");
-                    $(playerHtmlElement).css("left", (cellIndex * 40) + "px");
+                    $(playerHtmlElement).css("top", (rowIndex * 30) + "px");
+                    $(playerHtmlElement).css("left", (cellIndex * 30) + "px");
 
                     // Save player start position
                     player.position = [parseInt(rowIndex), parseInt(cellIndex)];
@@ -54,8 +54,8 @@ function initMaze() {
                     // Add dragon div into game zone
                     gameZoneElement.append(drHtmlElement);
                     // Update dragon position on game board
-                    $(drHtmlElement).css("top", (rowIndex * 40) + "px");
-                    $(drHtmlElement).css("left", (cellIndex * 40) + "px");
+                    $(drHtmlElement).css("top", (rowIndex * 30) + "px");
+                    $(drHtmlElement).css("left", (cellIndex * 30) + "px");
 
                     // Save dragon start position
                     dragons.setRedDragonPosition([parseInt(rowIndex), parseInt(cellIndex)]);
@@ -68,8 +68,8 @@ function initMaze() {
                     // Add dragon div into game zone
                     gameZoneElement.append(dbHtmlElement);
                     // Update dragon position on game board
-                    $(dbHtmlElement).css("top", (rowIndex * 40) + "px");
-                    $(dbHtmlElement).css("left", (cellIndex * 40) + "px");
+                    $(dbHtmlElement).css("top", (rowIndex * 30) + "px");
+                    $(dbHtmlElement).css("left", (cellIndex * 30) + "px");
 
                     // Save dragon start position
                     dragons.setBlueDragonPosition([parseInt(rowIndex), parseInt(cellIndex)]);
@@ -82,8 +82,8 @@ function initMaze() {
                     // Add exit div into game zone
                     gameZoneElement.append(exitHtmlElement);
                     // Update exit position on game board
-                    $(exitHtmlElement).css("top", (rowIndex * 40) + "px");
-                    $(exitHtmlElement).css("left", (cellIndex * 40) + "px");
+                    $(exitHtmlElement).css("top", (rowIndex * 30) + "px");
+                    $(exitHtmlElement).css("left", (cellIndex * 30) + "px");
                     break;
                 default :
                     rowElement.append('<div class="maze-cell grass"></div>');
