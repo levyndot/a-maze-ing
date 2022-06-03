@@ -100,7 +100,7 @@ $(window).on('load', function () {
     $("#btn-start-game").on('click', function () {
         $("#maze").empty();
         if(!gameStarted) {
-            maze = placeItems(items, displayMaze(mazeAlea(11,11)));
+            maze = placeItems(items, displayMaze(generateMaze(11,11)));
             initMaze();
             gameStarted = true;
             dragons.startMove();
